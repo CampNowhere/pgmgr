@@ -208,6 +208,15 @@ func (config *Config) applyArguments(ctx argumentContext) {
 	}
 	if ctx.Int("retry-delay") != 0 {
 		config.LockConfig.RetryDelay = ctx.Int("retry-delay")
+  }
+	if ctx.String("migration-table") != "" {
+		config.MigrationTable = ctx.String("migration-table")
+	}
+	if ctx.String("column-type") != "" {
+		config.ColumnType = ctx.String("column-type")
+	}
+	if ctx.String("format") != "" {
+		config.Format = ctx.String("format")
 	}
 	config.DumpConfig.applyArguments(ctx)
 }
